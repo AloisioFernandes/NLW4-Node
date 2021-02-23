@@ -1,1 +1,3 @@
 Express
+TypeORM
+SQLite(desenvolvimento)
