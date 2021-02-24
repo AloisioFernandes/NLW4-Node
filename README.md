@@ -1,4 +1,5 @@
 Express
 TypeORM
 SQLite(desenvolvimento)
-UUID
+UUID para ID de usuários
+Jest para testes
