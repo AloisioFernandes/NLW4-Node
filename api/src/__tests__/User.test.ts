@@ -1,8 +1,9 @@
+//executar teste com yarn teste -i
 import request from 'supertest'
 import { app } from '../app'
 import createConnection from '../database'
 // foi definido no package.json um comando para remover o banco de dados de teste após relizar o comando "test", "posttest"
-describe('Users', async () => {
+describe('Users', () => {
   beforeAll(async () => {
     const connection = await createConnection()
     await connection.runMigrations()
