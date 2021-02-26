@@ -1,5 +1,5 @@
-//executar teste com yarn teste -i
 import request from 'supertest'
+import { getConnection } from 'typeorm'
 import { app } from '../app'
 import createConnection from '../database'
 // foi definido no package.json um comando para remover o banco de dados de teste após relizar o comando "test", "posttest"
@@ -8,6 +8,12 @@ describe('Users', () => {
     const connection = await createConnection()
     await connection.runMigrations()
   })
+
+  afterAll(async () => {
+    const connection = getConnection()
+    await connection.dropDatabase()
+    await connection.close()
+  }) // deleta tabelas do banco de dados
 
   it('Should be able to create a new user', async () => {
     const response = await request(app).post('/users').send({ // testando criação de usuários
